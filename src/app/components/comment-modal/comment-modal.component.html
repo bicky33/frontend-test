@@ -1,0 +1,55 @@
+<div class="modal fade show" id="comment-modal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Comments</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card-body">
+                    <form [formGroup]="form">
+                        <div class="col-12 col-md-12 col-sm-12">
+                            <input type="hidden" name="postId" formControlName="postId">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name" name="name"
+                                    formControlName="name" placeholder="Enter Name">
+                                <div *ngIf="form.get('name')?.errors !== null">
+                                    <small *ngIf="form.get('name')?.errors?.['required']"
+                                        class="form-text text-danger">Name is required</small>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                    formControlName="email" placeholder="Enter Email">
+                                <div *ngIf="form.get('email')?.errors !== null">
+                                    <small *ngIf="form.get('email')?.errors?.['required']"
+                                        class="form-text text-danger">Email is required</small>
+                                    <small *ngIf="form.get('email')?.errors?.['email']"
+                                        class="form-text text-danger">Email is not valid</small>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="body">Body</label>
+                                <textarea name="body" id="body" cols="20" rows="5" formControlName="body" class="form-control">
+
+                                </textarea>
+                                <div *ngIf="form.get('body')?.errors !== null">
+                                    <small *ngIf="form.get('body')?.errors?.['required']"
+                                        class="form-text text-danger">Body is required</small>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">CLOSE</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"  (click)="onSubmit()" [disabled]="form.invalid">{{ actionStatus }}</button>
+            </div>
+        </div>
+    </div>
+</div>

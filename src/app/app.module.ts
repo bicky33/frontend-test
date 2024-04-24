@@ -15,6 +15,8 @@ import { AlbumsComponent } from './pages/albums/albums.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { PhotosComponent } from './pages/photos/photos.component';
 import { PostsComponent } from './pages/posts/posts.component';
+import { CommentModalComponent } from './components/comment-modal/comment-modal.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -30,9 +32,10 @@ import { PostsComponent } from './pages/posts/posts.component';
     AlbumsComponent,
     PaginationComponent,
     PhotosComponent,
-    PostsComponent
+    PostsComponent,
+    CommentModalComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -20,5 +20,8 @@ export class PostsService {
   getPostsByUserId(userId: string): Observable<Post[]> {
     return this.http.get<Post[]>(`${this.urlApi}?userId=${userId}`);
   }
+  getPostById(postId: number): Observable<Post> {
+    return this.http.get<Post>(`${this.urlApi}/${postId}`);
+  }
 
 }

@@ -1,4 +1,4 @@
-import { IMenus } from '../interfaces/common/i-menus';
+import { IMenus } from '../interfaces/common/menus';
 
 export const MenuConstant: IMenus[] = [
   {

@@ -22,6 +22,6 @@ export class UsersService {
   }
 
   getUserById(userId: string): Observable<User> {
-    return this.http.get<User>(`${this.urlApi}?userId=${userId}`);
+    return this.http.get<User>(`${this.urlApi}/${userId}`);
   }
 }

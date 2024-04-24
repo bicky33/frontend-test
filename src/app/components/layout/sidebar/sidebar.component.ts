@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MenuConstant } from 'src/app/constants/menu-constant';
-import { IMenus } from 'src/app/interfaces/common/i-menus';
+import { IMenus } from 'src/app/interfaces/common/menus';
 
 @Component({
   selector: 'app-sidebar',

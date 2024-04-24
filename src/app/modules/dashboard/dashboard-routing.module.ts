@@ -5,6 +5,7 @@ import { UsersComponent } from 'src/app/pages/users/users.component';
 import { ProfilesComponent } from 'src/app/pages/profiles/profiles.component';
 import { AlbumsComponent } from 'src/app/pages/albums/albums.component';
 import { PhotosComponent } from 'src/app/pages/photos/photos.component';
+import { PostsComponent } from 'src/app/pages/posts/posts.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
       {
         path: 'photos/:id',
         component: PhotosComponent
+      },
+      {
+        path: 'posts/:id',
+        component: PostsComponent
       }
     ],
   },

@@ -1,1 +1,75 @@
-<p>posts works!</p>
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Post</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content">
+        <div class="content-fluid">
+            <div class="col-md-8 mx-auto">
+                <div class="card card-widget">
+                    <div class="card-header">
+                        <div class="user-block">
+                            <img class="img-circle img-sm"
+                                src="https://www.aquasafemine.com/wp-content/uploads/2018/06/dummy-woman-570x570.png"
+                                alt="User Image">
+                            <span class="username"><a href="#">{{ user.name }}-{{ user.username }}</a></span>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <h5>{{ post.title }}</h5>
+                        <br>
+                        <p>{{ post.body }}</p>
+                        <span class="float-right text-muted">{{ comments.length }} comments</span>
+                    </div>
+
+                    <div class="card-footer card-comments">
+                        <div class="card-comment" *ngFor="let comment of comments">
+                            <div class="row col-md-12 col-lg-12 col-sm-12">
+                                <div class="col-md-1">
+                                    <img class="img-circle img-sm"
+                                    src="https://www.ihna.edu.au/blog/wp-content/uploads/2022/10/user-dummy-800x789.png"
+                                    alt="User Image">
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="comment-text">
+                                        <span class="username">
+                                            {{ comment.name }} - {{ comment.email }}
+                                        </span>
+                                        {{ comment.body }}
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" class="btn" title="Delete" (click)="deleteComment(comment.id)">
+                                        <i class="fa fa-times text-danger"></i>
+                                    </button>
+                                    <button type="button" class="btn" title="Edit" (click)="editComment(comment)" data-toggle="modal" data-target="#comment-modal">
+                                        <i class="far fa-edit text-primary"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="img-push">
+                            <button type="button" class="btn btn-sm btn-block btn-primary" data-toggle="modal" data-target="#comment-modal" (click)="openModal()">
+                                Add Comment
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<app-comment-modal 
+    [actionStatus]="actionStatus" 
+    (createComment)="createComment($event)"
+    (updateComment)="updateComment($event)"
+    [comment]="comment">
+</app-comment-modal>
