@@ -1,0 +1,113 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Profiles</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Main content -->
+    <section class="content">
+      <!-- Default box -->
+      <div class="container-fluid">
+        <div class="card p-4">
+            <div class="row">
+                <div class="col-md-2">
+                <img src="https://via.placeholder.com/150" alt="Profile Picture" class="img-fluid rounded-circle mb-3">
+                </div>
+                <div class="col-md-5">
+                    <h4 class="card-title">Leanne Graham</h4>
+                    <p class="card-text"><strong>Username:</strong> Bret</p>
+                    <p class="card-text"><strong>Email:</strong> Sincere@april.biz</p>
+                    <p class="card-text"><strong>Address:</strong> Kulas Light, Apt. 556, Gwenborough, 92998-3874</p>
+                    <p class="card-text"><strong>Phone:</strong> 1-770-736-8031 x56442</p>
+    
+                </div>
+                <div class="col-md-5">
+                    <p class="card-text"><strong>Website:</strong> hildegard.org</p>
+                    <p class="card-text"><strong>Company:</strong> Romaguera-Crona</p>
+                    <p class="card-text"><strong>Catch Phrase:</strong> Multi-layered client-server neural-net</p>
+                    <p class="card-text"><strong>BS:</strong> harness real-time e-markets</p>
+                </div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header d-flex align-items-center justify-content-between overflow-auto">
+                            <h2 class="card-title font-weight-bold">Albums</h2>
+                        </div>
+                        <div class="card-body text-center">
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead class="text-center">
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Title</th>
+                                        <th>Details</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                    <tr *ngFor="let album of albums; let i = index">
+                                        <td>{{ i + 1 }}</td>
+                                        <td>{{ album.title }}</td>
+                                        <td>
+                                            <a class="btn btn-primary" [routerLink]="['/albums', album.id]">Detail</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- <app-pagination [data]="al"></app-pagination> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header d-flex align-items-center justify-content-between overflow-auto">
+                            <h2 class="card-title font-weight-bold">Posts</h2>
+                        </div>
+                        <div class="card-body text-center">
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead class="text-center">
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Title</th>
+                                        <th>Body</th>
+                                        <th>Details</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                    <tr *ngFor="let post of posts; let i = index">
+                                        <td>{{ i + 1 }}</td>
+                                        <td>{{ post.title }}</td>
+                                        <td>{{ post.body }}</td>
+                                        <td>
+                                            <a class="btn btn-primary" [routerLink]="['/posts', post.id]">Detail</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- <app-pagination [data]="al"></app-pagination> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  </div>
+  

@@ -1,0 +1,63 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Users</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Main content -->
+    <section class="content">
+      <!-- Default box -->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header d-flex align-items-center justify-content-between overflow-auto">
+                <h2 class="card-title font-weight-bold">Data Users</h2>
+              </div>
+  
+              <div class="card-body text-center">
+                <table class="table table-striped table-bordered table-hover">
+                  <thead class="text-center">
+                    <tr>
+                      <th>No</th>
+                      <th>Name</th>
+                      <th>UserName</th>
+                      <th>Phone</th>
+                      <th>Email</th>
+                      <th>Company</th>
+                      <th>Profiles</th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-center">
+                    <tr *ngFor="let user of users; let i = index">
+                      <td>{{ i + 1 }}</td>
+                      <td>{{ user.name }}</td>
+                      <td>{{ user.username }}</td>
+                      <td>{{ user.phone }}</td>
+                      <td>{{ user.email }}</td>
+                      <td>{{ user.company.name }}</td>
+                      <td>
+                        <a
+                          class="btn btn-primary"
+                          [routerLink]="['/users', user.id]"
+                          >Detail</a
+                        >
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  

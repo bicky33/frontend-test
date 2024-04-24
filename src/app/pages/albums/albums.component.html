@@ -1,0 +1,25 @@
+<div class="content-wrapper">
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Albums - {{ album.title }} </h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row col-md-12 col-sm-12 col-lg-12">
+                <ng-container *ngFor="let photo of photos">
+                    <div class="card col-md-3 mx-auto">
+                        <a [routerLink]="['/photos', photo.id]">
+                            <img class="card-img-top cover" [src]="photo.thumbnailUrl">
+                        </a>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </section>
+</div>
