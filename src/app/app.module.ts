@@ -17,6 +17,7 @@ import { PhotosComponent } from './pages/photos/photos.component';
 import { PostsComponent } from './pages/posts/posts.component';
 import { CommentModalComponent } from './components/comment-modal/comment-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PostModalComponent } from './components/post-modal/post-modal.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     PaginationComponent,
     PhotosComponent,
     PostsComponent,
-    CommentModalComponent
+    CommentModalComponent,
+    PostModalComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
   providers: [],

@@ -1,0 +1,7 @@
+<div class="d-flex justify-content-center my-3">
+    <ul class="pagination pagination-md m-0 text-center">
+        <li class="page-item" *ngFor="let i of getPageNumber()">
+            <button  class="page-link" [ngClass]="{ 'bg-primary' : i === pagination.currentPage, 'bg-secondary': i !== pagination.currentPage }" (click)=" i !== '...' && goPages(i) " type="button">{{ i }}</button
+        ></li>
+    </ul>
+</div>

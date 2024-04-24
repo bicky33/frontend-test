@@ -1,0 +1,12 @@
+.card-body::after, 
+.card-footer::after, 
+.card-header::after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+:not(.exclude-me)::after {
+    /* Reset styles for ::after pseudo-element */
+    display: none;
+}

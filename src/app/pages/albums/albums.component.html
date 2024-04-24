@@ -12,7 +12,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row col-md-12 col-sm-12 col-lg-12">
-                <ng-container *ngFor="let photo of photos">
+                <ng-container *ngFor="let photo of photoShows">
                     <div class="card col-md-3 mx-auto">
                         <a [routerLink]="['/photos', photo.id]">
                             <img class="card-img-top cover" [src]="photo.thumbnailUrl">
@@ -20,6 +20,9 @@
                     </div>
                 </ng-container>
             </div>
+            <app-pagination [pagination]="photosPagination" (onPaging)="photoPaging($event)">
+
+            </app-pagination>
         </div>
     </section>
 </div>
