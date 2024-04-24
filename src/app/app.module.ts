@@ -18,6 +18,7 @@ import { PostsComponent } from './pages/posts/posts.component';
 import { CommentModalComponent } from './components/comment-modal/comment-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PostModalComponent } from './components/post-modal/post-modal.component';
+import { AlbumsDashboardComponent } from './pages/albums-dashboard/albums-dashboard.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { PostModalComponent } from './components/post-modal/post-modal.component
     PhotosComponent,
     PostsComponent,
     CommentModalComponent,
-    PostModalComponent
+    PostModalComponent,
+    AlbumsDashboardComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
   providers: [],

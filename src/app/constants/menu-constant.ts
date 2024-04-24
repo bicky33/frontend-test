@@ -7,4 +7,16 @@ export const MenuConstant: IMenus[] = [
     exact: false,
     icon: 'fas fa-user',
   },
+  {
+    path: '/albums',
+    title: 'Albums',
+    exact: false,
+    icon: 'fas fa-image',
+  },
+  {
+    path: '/posts',
+    title: 'Posts',
+    exact: false,
+    icon: 'fas fa-edit',
+  }
 ];

@@ -1,29 +1,38 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
-import { UsersComponent } from './users.component'
+import { AlbumsDashboardComponent } from './albums-dashboard.component'
+import { AlbumsService } from 'src/app/services/albums/albums.service'
 import { UsersService } from 'src/app/services/users/users.service'
-import User from 'src/app/interfaces/users/user'
 import { of } from 'rxjs'
+import { Album } from 'src/app/interfaces/albums/album'
+import User from 'src/app/interfaces/users/user'
 
-describe('UsersComponent', () => {
-  let component: UsersComponent
-  let fixture: ComponentFixture<UsersComponent>
-  let userService: UsersService
+describe('AlbumsDashboardComponent', () => {
+  let component: AlbumsDashboardComponent
+  let fixture: ComponentFixture<AlbumsDashboardComponent>
+  let albumsService: AlbumsService
+  let usersService: UsersService
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [UsersComponent],
-      providers: [UsersService]
-    })
-    fixture = TestBed.createComponent(UsersComponent)
+      declarations: [AlbumsDashboardComponent],
+      providers: [AlbumsService, UsersService]
+    }).compileComponents()
+
+    fixture = TestBed.createComponent(AlbumsDashboardComponent)
     component = fixture.componentInstance
-    userService = TestBed.inject(UsersService)
+    albumsService = TestBed.inject(AlbumsService)
+    usersService = TestBed.inject(UsersService)
   })
 
   it('should create', () => {
     expect(component).toBeTruthy()
   })
 
-  it('should fetch users on initialization', () => {
+  it('should fetch albums and users on initialization', () => {
+    const albums: Album[] = [
+      { id: 1, title: 'Album 1', userId: 1, }, 
+      { id: 2, title: 'Album 2', userId: 2,}
+    ]
     const users: User[] = [
       {
         "id": 1,
@@ -72,10 +81,23 @@ describe('UsersComponent', () => {
         }
     },
     ]
-    spyOn(userService, 'getUsers').and.returnValue(of(users))
+
+    spyOn(albumsService, 'getAlbums').and.returnValue(of(albums))
+    spyOn(usersService, 'getUsers').and.returnValue(of(users))
 
     component.ngOnInit()
 
+    expect(albumsService.getAlbums).toHaveBeenCalled()
+    expect(usersService.getUsers).toHaveBeenCalled()
+    expect(component.albums).toEqual(albums)
     expect(component.users).toEqual(users)
+  })
+
+  it('should update album pagination when calling albumPaging', () => {
+    const pageNumber = 2
+
+    component.albumPaging(pageNumber)
+
+    expect(component.albumsPagination.currentPage).toEqual(pageNumber)
   })
 })

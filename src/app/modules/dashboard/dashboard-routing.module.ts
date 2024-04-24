@@ -6,6 +6,7 @@ import { ProfilesComponent } from 'src/app/pages/profiles/profiles.component';
 import { AlbumsComponent } from 'src/app/pages/albums/albums.component';
 import { PhotosComponent } from 'src/app/pages/photos/photos.component';
 import { PostsComponent } from 'src/app/pages/posts/posts.component';
+import { AlbumsDashboardComponent } from 'src/app/pages/albums-dashboard/albums-dashboard.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
       {
         path: 'users/:id',
         component: ProfilesComponent      
+      },
+      {
+        path: 'albums',
+        component: AlbumsDashboardComponent
       },
       {
         path: 'albums/:id',

@@ -17,6 +17,10 @@ export class PhotosService {
 
   urlApi: string = `${environment.baseUrl}/photos`
 
+  getPhotos(): Observable<Photo[]> {
+    return this.http.get<Photo[]>(this.urlApi);
+  }
+
   getPhotosByAlbumId(albumId: string): Observable<Photo[]> {
     return this.http.get<Photo[]>(`${this.urlApi}?albumId=${albumId}`);
   }
