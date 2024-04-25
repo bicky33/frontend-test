@@ -24,6 +24,10 @@ export class PostsService {
     return this.http.get<Post>(`${this.urlApi}/${postId}`);
   }
 
+  getPosts(): Observable<Post[]> {
+    return this.http.get<Post[]>(this.urlApi);
+  }
+
   createPost(post: Post): Observable<Post> {
     return this.http.post<Post>(this.urlApi, post, this.httpOptions);
   }

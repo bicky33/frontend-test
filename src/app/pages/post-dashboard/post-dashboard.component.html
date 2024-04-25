@@ -1,0 +1,45 @@
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>All Posts</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="post pb-5" *ngFor="let post of postShows">
+                                <div class="user-block">
+                                    <img class="img-circle img-bordered-sm" src="https://www.aquasafemine.com/wp-content/uploads/2018/06/dummy-woman-570x570.png"
+                                        alt="user image">
+                                    <span class="username text-left">
+                                        <a [routerLink]="['/users', post.userId]">{{ userMaps.get(post.userId) }}</a>
+                                    </span>
+                                </div>
+                                <h5>{{ post.title }}</h5>
+
+                                <p>
+                                    {{ post.body }}
+                                </p>
+                                <p>
+                                    <span class="float-right">
+                                        <a [routerLink]="['/posts', post.id]" class="link-black text-sm">
+                                            <i class="far fa-comments mr-1"></i> View Comments
+                                        </a>
+                                    </span>
+                                </p>
+                            </div>
+                            <button *ngIf="posts.length !== postShows.length" type="button" class="btn btn-block btn-primary mt-5" (click)="onLoadMore()">Load More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

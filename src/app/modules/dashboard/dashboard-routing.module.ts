@@ -7,6 +7,7 @@ import { AlbumsComponent } from 'src/app/pages/albums/albums.component';
 import { PhotosComponent } from 'src/app/pages/photos/photos.component';
 import { PostsComponent } from 'src/app/pages/posts/posts.component';
 import { AlbumsDashboardComponent } from 'src/app/pages/albums-dashboard/albums-dashboard.component';
+import { PostDashboardComponent } from 'src/app/pages/post-dashboard/post-dashboard.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
       {
         path: 'photos/:id',
         component: PhotosComponent
+      },
+      {
+        path: 'posts',
+        component: PostDashboardComponent  
       },
       {
         path: 'posts/:id',
