@@ -15,7 +15,7 @@ export class PostsService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  urlApi: string = `${environment.baseUrl}/posts`
+  urlApi: string = process.env['baseUrl'] ?? `${environment.baseUrl}/posts`
 
   getPostsByUserId(userId: string): Observable<Post[]> {
     return this.http.get<Post[]>(`${this.urlApi}?userId=${userId}`);

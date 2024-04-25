@@ -12,7 +12,7 @@ export class AlbumsService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  urlApi: string = `${environment.baseUrl}/albums`
+  urlApi: string = process.env['baseUrl'] ?? `${environment.baseUrl}/albums`
   constructor(private http:HttpClient) { }
 
   getAlbumsByUserId(userId: string): Observable<Album[]> {

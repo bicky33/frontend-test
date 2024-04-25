@@ -15,7 +15,7 @@ export class PhotosService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  urlApi: string = `${environment.baseUrl}/photos`
+  urlApi: string = process.env['baseUrl'] ?? `${environment.baseUrl}/photos`
 
   getPhotos(): Observable<Photo[]> {
     return this.http.get<Photo[]>(this.urlApi);

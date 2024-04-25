@@ -15,7 +15,7 @@ export class UsersService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  urlApi: string = `${environment.baseUrl}/users`
+  urlApi: string = process.env['baseUrl'] ?? `${environment.baseUrl}/users`
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.urlApi);
