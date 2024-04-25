@@ -14,7 +14,7 @@ export class CommentsService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  urlApi: string = `${process.env['BaseURL']}/comments` ?? `${environment.baseUrl}/comments`
+  urlApi: string = `${environment.baseUrl}/comments`
 
   getCommentsByPostId(postId: number): Observable<Comment[]> {
     return this.http.get<Comment[]>(`${this.urlApi}?postId=${postId}`);
